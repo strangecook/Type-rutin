@@ -7,7 +7,7 @@ import InputSection from './components/inputSection';
 function App() {
   return (
         <AppContainer>
-          <InputSection></InputSection>
+          <InputSection />
         </AppContainer>
   );
 }
