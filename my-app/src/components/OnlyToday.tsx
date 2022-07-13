@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components'
-import { RutinComponent } from '../Styled/RutinStyled';
+import { TodayComponent } from '../Styled/TodayStyled';
 
-function Rutin() {
+function OnlyToday() {
   return (
-        <RutinComponent>
+        <TodayComponent>
             <div>
-              할일 목록
+              오늘 할일 목록
             </div>
             <div>
               <input type="checkbox"></input>
-              <div>이게 매일 할일 1이다</div>
+              <div>이게 오늘만 할일 1이다</div>
               <div>수정</div>
               <div>삭제</div>
             </div>
-        </RutinComponent>
+        </TodayComponent>
   );
 }
 
-export default Rutin;
+export default OnlyToday;
