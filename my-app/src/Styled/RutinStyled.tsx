@@ -35,7 +35,27 @@ grid-column: 3/11;
 `
 export const RutinTodoFix = styled.button`
 grid-column: 11/12;
+margin: 0 3px 0 0;
+border: 3px solid #77af9c;
+border-radius: 3px;
+transition: transform 300ms ease;
+
+:hover {
+    background-color: #77af9c;
+    color: #e3dede;
+    transform: scale(1.1);
+    }
 `
 export const RutinTodoDel = styled.button`
 grid-column: 12/13;
+margin: 0 0 0 3px;
+border: 3px solid #ff5f2e;
+border-radius: 3px;
+transition: transform 300ms ease;
+
+:hover {
+    background-color: #ff5f2e;
+    color: #e3dede;
+    transform: scale(1.1);
+    }
 `
