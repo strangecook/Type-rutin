@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components'
-import { TodayComponent } from '../Styled/TodayStyled';
+import { TodayComponent, TodayTitle, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../Styled/TodayStyled';
 
 function OnlyToday() {
   return (
         <TodayComponent>
-            <div>
-              오늘 할일 목록
-            </div>
-            <div>
-              <input type="checkbox"></input>
-              <div>이게 오늘만 할일 1이다</div>
-              <div>수정</div>
-              <div>삭제</div>
-            </div>
+            <TodayTitle>
+              오늘 할 일 리스트
+            </TodayTitle>
+            <TodayTodo>
+              <TodayTodoInput type="checkbox"></TodayTodoInput>
+              <TodayTodoNumber>1.</TodayTodoNumber>
+              <TodayTodoText>이게 매일 할일 1이다</TodayTodoText>
+              <TodayTodoFix>수정</TodayTodoFix>
+              <TodayTodoDel>삭제</TodayTodoDel>
+            </TodayTodo>
         </TodayComponent>
   );
 }

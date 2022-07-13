@@ -1,19 +1,19 @@
 import React from 'react';
-import styled from 'styled-components'
-import { RutinComponent } from '../Styled/RutinStyled';
+import { RutinComponent, RutinTitle, RutinTodo, RutinTodoNumber, RutinTodoInput, RutinTodoText, RutinTodoFix, RutinTodoDel } from '../Styled/RutinStyled';
 
 function Rutin() {
   return (
         <RutinComponent>
-            <div>
-              할일 목록
-            </div>
-            <div>
-              <input type="checkbox"></input>
-              <div>이게 매일 할일 1이다</div>
-              <div>수정</div>
-              <div>삭제</div>
-            </div>
+            <RutinTitle>
+              매일 할 일 리스트
+            </RutinTitle>
+            <RutinTodo>
+              <RutinTodoInput type="checkbox"></RutinTodoInput>
+              <RutinTodoNumber>1.</RutinTodoNumber>
+              <RutinTodoText>이게 매일 할일 1이다</RutinTodoText>
+              <RutinTodoFix>수정</RutinTodoFix>
+              <RutinTodoDel>삭제</RutinTodoDel>
+            </RutinTodo>
         </RutinComponent>
   );
 }
