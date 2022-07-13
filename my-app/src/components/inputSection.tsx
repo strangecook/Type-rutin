@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components'
-import { InputSectionContainer } from '../Styled/InputSectionStyled';
+import { InputSectionContainer, InputSelect, InputBlank, InputButton } from '../Styled/InputSectionStyled';
 
 function InputSection() {
   return (
         <InputSectionContainer>
-            <select>
+            <InputSelect>
                 <option>오늘 할 일 추가</option>
                 <option>매일 할 일 추가</option>
-            </select>
-            <input type="text"></input>
-            <button>완료!</button>
+            </InputSelect>
+            <InputBlank placeholder='할 일을 입력해주세요' type="text"></InputBlank>
+            <InputButton>완료!</InputButton>
         </InputSectionContainer>
   );
 }

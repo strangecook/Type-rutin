@@ -18,7 +18,7 @@ grid-template-areas:
 ". rutin rutin rutin rutin rutin today today today today today ."
 ". rutin rutin rutin rutin rutin today today today today today ."
 ". rutin rutin rutin rutin rutin today today today today today ."
-". rutin rutin rutin rutin rutin today today today today today .";
+". . . . . . . . . . . .";
 top: 0;
 left: 0;
 width: 100%;
