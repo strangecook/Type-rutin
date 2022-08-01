@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
-import { ApproachContainer } from '../Styled/ApproachStyled';
+import { ApproachContainer } from '../../Styled/HomeStyle/ApproachStyled';
 
 function Approach() {
   return (

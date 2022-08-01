@@ -1,5 +1,5 @@
 import React from 'react';
-import { RutinComponent, RutinTitle, RutinTodo, RutinTodoNumber, RutinTodoInput, RutinTodoText, RutinTodoFix, RutinTodoDel } from '../Styled/RutinStyled';
+import { RutinComponent, RutinTitle, RutinTodo, RutinTodoNumber, RutinTodoInput, RutinTodoText, RutinTodoFix, RutinTodoDel } from '../../Styled/HomeStyle/RutinStyled';
 
 function Rutin() {
   return (
