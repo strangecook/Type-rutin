@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
-import { InputSectionContainer, InputSelect, InputBlank, InputButton } from '../Styled/InputSectionStyled';
+import { InputSectionContainer, InputSelect, InputBlank, InputButton } from '../../Styled/HomeStyle/InputSectionStyled';
 
 function InputSection() {
   return (

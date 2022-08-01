@@ -1,6 +1,6 @@
 import React from 'react';
-import { TodayComponent, TodayTitle, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../Styled/TodayStyled';
-import { TodayData } from '../dummy/todayData';
+import { TodayComponent, TodayTitle, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
+import { TodayData } from '../../dummy/todayData';
 
 function OnlyToday() {
   return (
