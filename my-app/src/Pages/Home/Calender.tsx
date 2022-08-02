@@ -1,11 +1,11 @@
 import React from 'react';
 import { CalenderContainer } from '../../Styled/HomeStyle/CalenderStyled';
-import DatePicker from '../../components/calender/DatePicker';
+import Calendar from '../../components/calender/CalenderComponents';
 
 function Rutin() {
   return (
         <CalenderContainer>
-          <DatePicker />
+          <Calendar />
         </CalenderContainer>
   );
 }
