@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const InputSectionContainer = styled.div`
+export const InputSectionContainer = styled.form`
 grid-area: input;
 display: grid;
 grid-template-columns: repeat(6,1fr);
@@ -27,7 +27,7 @@ export const InputBlank = styled.input`
 }
 `
 
-export const InputButton = styled.button`
+export const InputButton = styled.input`
     grid-column: 6/7;
     grid-row: 1/2;
     width: 80%;
