@@ -1,19 +1,12 @@
 import React from 'react';
-import { AppContainer } from './Styled/HomeStyle/appStyled';
-import InputSection from './components/Home/inputSection';
-import Rutin from './components/Home/rutin';
-import OnlyToday from './components/Home/OnlyToday';
-import Calender from './components/Home/Calender'
-import Approach from './components/Home/Approach';
+import { AppContainer } from './Styled/appStyled';
+import Home from './Pages/Home';
+
 
 function App() {
   return (
         <AppContainer>
-          <InputSection />
-          <Rutin />
-          <OnlyToday />
-          <Calender />
-          <Approach />
+          <Home />
         </AppContainer>
   );
 }
