@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AppContainer = styled.div`
+export const HomeContainer = styled.div`
 background-color: rgb(205, 209, 201);
 position: absolute;
 display: grid;
