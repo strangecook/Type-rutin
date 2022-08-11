@@ -5,10 +5,9 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase"
 
 function App() {
-  // const [info, setInformation] = useState<Information | null>(null);
-  const [init, setInit] = useState<boolean>(false)
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [userObj, setUserObj] = useState<string | null>(null)
+  const [init, setInit] = useState(false) // 타입스크립트 다시 공부하기
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null)
   useEffect(()=>{
     const auth = getAuth();
     console.log("auth",auth)
