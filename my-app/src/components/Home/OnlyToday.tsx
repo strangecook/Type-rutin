@@ -10,7 +10,7 @@ function OnlyToday() {
             </TodayTitle>
             {
               TodayData.map((el,idx)=>{
-                return <TodayTodo>
+                return <TodayTodo key={el.data}>
                   <TodayTodoInput type="checkbox"></TodayTodoInput>
                   <TodayTodoNumber>{idx+1}.</TodayTodoNumber>
                   <TodayTodoText>{el.data}</TodayTodoText>
