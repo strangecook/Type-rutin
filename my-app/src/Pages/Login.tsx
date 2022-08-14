@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { LoginContainer } from "../Styled/LoginStyled/LoginStyle";
 
 function Login() {
 
@@ -43,7 +44,7 @@ function Login() {
   }
 
   return (
-    <div>
+    <LoginContainer>
         <form onSubmit={(e)=>onSubmit(e)}>
           <input name="email" type="text" placeholder="Email" required value={email} onChange={(e)=>onChange(e)} ></input>
           <input name="password" type="password" placeholder="password" required value={password} onChange={(e)=>onChange(e)} ></input>
@@ -55,7 +56,7 @@ function Login() {
         <div>
           <button onClick={ChangeClick}>Change Mode</button>
         </div>
-    </div>
+    </LoginContainer>
   );
 }
 
