@@ -18,6 +18,7 @@ function InputSection() {
   }
   const onSubmit = async (e: React.SyntheticEvent) =>{
     e.preventDefault();
+    console.log("e",e)
     if(selectBox==="오늘 할 일 추가"){
       await addDoc(collection(dbService,"todayList"),{
         text: text,
