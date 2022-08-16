@@ -27,7 +27,7 @@ grid-column: 1/2;
 `
 export const TodayTodoNumber = styled.div`
 grid-column: 2/3;
-text-align: right;
+text-align: center;
 line-height: 25px;
 `
 export const TodayTodoText = styled.div`
