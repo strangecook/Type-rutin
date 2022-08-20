@@ -9,6 +9,7 @@ function OnlyToday() {
   const [todayData, setTodayData] = useState<{
     id: string,
     text: string,
+    change : boolean,
     createdAt :FieldValue | null
   }[]>([])
 
@@ -21,6 +22,7 @@ function OnlyToday() {
       const nweetArr:any = snapshot.docs.map((doc) => ({ // 먼저 any로 타입을 지정해줬는데 더 알아봐야한다. 다시본다면 생각해보자
       id: doc.id,
       text: doc.id,
+      boolean: doc.id,
       ...doc.data(),
       }));
       console.log(nweetArr)
@@ -34,7 +36,10 @@ function OnlyToday() {
             <TodayTitle>
               오늘 할 일 리스트
             </TodayTitle>
-            <TodayList todayData={todayData} />
+            <div>안녕 다람아~</div>
+            {todayData.map((eachData, idx)=>{
+              <TodayList eachData={eachData} idx={idx} />
+            })}
         </TodayComponent>
   );
 }
