@@ -33,6 +33,9 @@ line-height: 25px;
 export const TodayTodoText = styled.div`
 grid-column: 3/11;
 `
+export const TodayTodoChange = styled.input`
+grid-column: 3/11;
+`
 export const TodayTodoFix = styled.button`
 grid-column: 11/12;
 margin: 0 3px 0 0;

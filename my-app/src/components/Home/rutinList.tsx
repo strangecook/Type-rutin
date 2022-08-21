@@ -14,13 +14,13 @@ interface props {
   idx: number
 }
 
-function TodayList({ eachData, idx }: props): React.ReactElement {
+function RutinList({ eachData, idx }: props): React.ReactElement {
 
   const [changeText, setChangeText] = useState("")
   const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) =>{
     setChangeText(e.target.value)
   }
-  const TodayDataChange = doc(dbService, "todayList", `${eachData.id}`);
+  const TodayDataChange = doc(dbService, "EveryDayList", `${eachData.id}`);
 
   const changeCommit = async () => {
     await updateDoc(TodayDataChange, {
@@ -70,4 +70,4 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
   );
 }
 
-export default TodayList;
+export default RutinList;

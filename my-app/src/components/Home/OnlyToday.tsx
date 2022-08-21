@@ -36,9 +36,10 @@ function OnlyToday() {
             <TodayTitle>
               오늘 할 일 리스트
             </TodayTitle>
-            <div>안녕 다람아~</div>
             {todayData.map((eachData, idx)=>{
-              <TodayList eachData={eachData} idx={idx} />
+              return(
+                <TodayList key={eachData.id} eachData={eachData} idx={idx} />
+              )
             })}
         </TodayComponent>
   );
