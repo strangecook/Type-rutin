@@ -1,5 +1,5 @@
-import React, { useState,  } from 'react';
-import { TodayTodoChange , TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
+import React, { useState, } from 'react';
+import { TodayTodoChange, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { dbService } from "../../firebase";
 import { FieldValue } from "@firebase/firestore";// @으로 임포트 해오면 해당 타입들이 적혀져 있다.
@@ -17,7 +17,7 @@ interface props {
 function TodayList({ eachData, idx }: props): React.ReactElement {
 
   const [changeText, setChangeText] = useState("")
-  const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChangeText(e.target.value)
   }
   const TodayDataChange = doc(dbService, "todayList", `${eachData.id}`);
@@ -28,15 +28,15 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
     })
   }
 
-  const DeleteCommit =async () => {
-    try{
+  const DeleteCommit = async () => {
+    try {
       await deleteDoc(TodayDataChange)
-    }catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
 
-  const changeCommitSet  = async () => {
+  const changeCommitSet = async () => {
     await updateDoc(TodayDataChange, {
       change: false,
       text: changeText
@@ -55,16 +55,16 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
         <TodayTodoInput type="checkbox"></TodayTodoInput>
         <TodayTodoNumber>{idx + 1}.</TodayTodoNumber>
         {eachData.change
-        ? <>
-        <TodayTodoChange onChange={(e)=>changeTextOnchange(e)} value={changeText} placeholder={eachData.text}></TodayTodoChange>
-        <TodayTodoFix onClick={()=>changeCommitSet()}>결정</TodayTodoFix>
-        <TodayTodoDel onClick={()=>changeCancle()}>취소</TodayTodoDel>
-        </>
-        :<>
-        <TodayTodoText>{eachData.text}</TodayTodoText>
-        <TodayTodoFix onClick={()=>changeCommit()}>수정</TodayTodoFix>
-        <TodayTodoDel onClick={()=>DeleteCommit()}>삭제</TodayTodoDel>
-        </>}
+          ? <>
+            <TodayTodoChange onChange={(e) => changeTextOnchange(e)} value={changeText} placeholder={eachData.text}></TodayTodoChange>
+            <TodayTodoFix onClick={() => changeCommitSet()}>결정</TodayTodoFix>
+            <TodayTodoDel onClick={() => changeCancle()}>취소</TodayTodoDel>
+          </>
+          : <>
+            <TodayTodoText>{eachData.text}</TodayTodoText>
+            <TodayTodoFix onClick={() => changeCommit()}>수정</TodayTodoFix>
+            <TodayTodoDel onClick={() => DeleteCommit()}>삭제</TodayTodoDel>
+          </>}
       </TodayTodo>
     </>
   );
