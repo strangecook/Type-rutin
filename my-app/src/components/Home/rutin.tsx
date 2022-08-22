@@ -10,6 +10,7 @@ function Rutin() {
     id: string,
     text: string,
     change: boolean,
+    achieve: boolean,
     createdAt: FieldValue | null
   }[]>([])
 
