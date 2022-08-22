@@ -9,6 +9,7 @@ interface props {
     id: string,
     text: string,
     change: boolean,
+    achieve: boolean,
     createdAt: FieldValue | null
   },
   idx: number
@@ -17,7 +18,6 @@ interface props {
 function TodayList({ eachData, idx }: props): React.ReactElement {
 
   const [changeText, setChangeText] = useState("")
-  const [complete, setComplete] = useState(true)
 
   const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChangeText(e.target.value)
@@ -51,8 +51,10 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
     })
   }
 
-  const todoComplete = () =>{
-    setComplete((prev)=>!prev)
+  const todoComplete = async () => {
+    await updateDoc(TodayDataChange, {
+      achieve: true,
+    })
   }
 
   return (
@@ -67,9 +69,12 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
             <TodayTodoDel onClick={() => changeCancle()}>취소</TodayTodoDel>
           </>
           : <>
-          {complete? <TodayTodoText>{eachData.text}</TodayTodoText>
-          : <TodayTodoTextFinish>{eachData.text}</TodayTodoTextFinish>
-        }
+            {eachData.achieve
+              ?
+              <TodayTodoTextFinish>{eachData.text}</TodayTodoTextFinish>
+              :
+              <TodayTodoText>{eachData.text}</TodayTodoText>
+            }
             <TodayTodoComplete onClick={() => todoComplete()}>달성</TodayTodoComplete>
             <TodayTodoFix onClick={() => changeCommit()}>수정</TodayTodoFix>
             <TodayTodoDel onClick={() => DeleteCommit()}>삭제</TodayTodoDel>

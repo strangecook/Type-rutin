@@ -22,12 +22,14 @@ function InputSection() {
       await addDoc(collection(dbService, "todayList"), {
         text: text,
         change: false,
+        achieve: false,
         createdAt: serverTimestamp(),
       })
     } else {
       await addDoc(collection(dbService, "EveryDayList"), {
         text: text,
         change: false,
+        achieve: false,
         createdAt: serverTimestamp(),
       })
     }
