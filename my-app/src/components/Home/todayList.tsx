@@ -1,5 +1,5 @@
 import React, { useState, } from 'react';
-import { TodayTodoChange, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
+import { TodayTodoChange, TodayTodoComplete, TodayTodoTextFinish, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { dbService } from "../../firebase";
 import { FieldValue } from "@firebase/firestore";// @으로 임포트 해오면 해당 타입들이 적혀져 있다.
@@ -17,6 +17,8 @@ interface props {
 function TodayList({ eachData, idx }: props): React.ReactElement {
 
   const [changeText, setChangeText] = useState("")
+  const [complete, setComplete] = useState(true)
+
   const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChangeText(e.target.value)
   }
@@ -49,6 +51,10 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
     })
   }
 
+  const todoComplete = () =>{
+    setComplete((prev)=>!prev)
+  }
+
   return (
     <>
       <TodayTodo>
@@ -61,7 +67,10 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
             <TodayTodoDel onClick={() => changeCancle()}>취소</TodayTodoDel>
           </>
           : <>
-            <TodayTodoText>{eachData.text}</TodayTodoText>
+          {complete? <TodayTodoText>{eachData.text}</TodayTodoText>
+          : <TodayTodoTextFinish>{eachData.text}</TodayTodoTextFinish>
+        }
+            <TodayTodoComplete onClick={() => todoComplete()}>달성</TodayTodoComplete>
             <TodayTodoFix onClick={() => changeCommit()}>수정</TodayTodoFix>
             <TodayTodoDel onClick={() => DeleteCommit()}>삭제</TodayTodoDel>
           </>}
