@@ -31,10 +31,28 @@ text-align: center;
 line-height: 25px;
 `
 export const TodayTodoText = styled.div`
-grid-column: 3/11;
+grid-column: 3/10;
+`
+export const TodayTodoTextFinish = styled.div`
+grid-column: 3/10;
+text-decoration:line-through;
+color: aliceblue;
 `
 export const TodayTodoChange = styled.input`
-grid-column: 3/11;
+grid-column: 3/10;
+`
+export const TodayTodoComplete = styled.button`
+grid-column: 10/11;
+margin: 0 3px 0 0;
+border: 3px solid #777baf;
+border-radius: 3px;
+transition: transform 300ms ease;
+
+:hover {
+    background-color: #777baf;
+    color: #e3dede;
+    transform: scale(1.1);
+    }
 `
 export const TodayTodoFix = styled.button`
 grid-column: 11/12;
