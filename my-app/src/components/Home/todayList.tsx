@@ -52,9 +52,15 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
   }
 
   const todoComplete = async () => {
-    await updateDoc(TodayDataChange, {
-      achieve: true,
-    })
+    if(eachData.achieve){
+      await updateDoc(TodayDataChange, {
+        achieve: false,
+      })
+    }else{
+      await updateDoc(TodayDataChange, {
+        achieve: true,
+      })
+    }
   }
 
   return (
