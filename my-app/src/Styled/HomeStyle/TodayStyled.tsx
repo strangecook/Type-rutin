@@ -43,7 +43,7 @@ grid-column: 3/10;
 `
 export const TodayTodoComplete = styled.button`
 grid-column: 10/11;
-margin: 0 3px 0 0;
+margin: 0 3px 0 3px;
 border: 3px solid #777baf;
 border-radius: 3px;
 transition: transform 300ms ease;
@@ -56,7 +56,7 @@ transition: transform 300ms ease;
 `
 export const TodayTodoFix = styled.button`
 grid-column: 11/12;
-margin: 0 3px 0 0;
+margin: 0 3px 0 3px;
 border: 3px solid #77af9c;
 border-radius: 3px;
 transition: transform 300ms ease;
@@ -69,7 +69,7 @@ transition: transform 300ms ease;
 `
 export const TodayTodoDel = styled.button`
 grid-column: 12/13;
-margin: 0 0 0 3px;
+margin: 0 3px 0 3px;
 border: 3px solid #ff5f2e;
 border-radius: 3px;
 transition: transform 300ms ease;
