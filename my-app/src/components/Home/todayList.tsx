@@ -10,7 +10,10 @@ interface props {
     text: string,
     change: boolean,
     achieve: boolean,
-    createdAt: FieldValue | null
+    createdAt: {
+      nanoseconds: number,
+      seconds: number
+    }
   },
   idx: number
 }
@@ -18,6 +21,9 @@ interface props {
 function TodayList({ eachData, idx }: props): React.ReactElement {
 
   const [changeText, setChangeText] = useState("")
+  const thisIsToday = new Date()
+  console.log("eachData", new Date(eachData.createdAt?.seconds*1000))
+  console.log("thisIsToday", thisIsToday)
 
   const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChangeText(e.target.value)
@@ -52,11 +58,11 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
   }
 
   const todoComplete = async () => {
-    if(eachData.achieve){
+    if (eachData.achieve) {
       await updateDoc(TodayDataChange, {
         achieve: false,
       })
-    }else{
+    } else {
       await updateDoc(TodayDataChange, {
         achieve: true,
       })
