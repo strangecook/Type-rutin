@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const ApproachContainer = styled.div`
-background-color: blue;
 grid-area: appr;
 `
+
+export const ChartDiv = styled.div`
+    height: 100%;
+    `

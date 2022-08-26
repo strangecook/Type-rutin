@@ -11,7 +11,10 @@ function OnlyToday() {
     text: string,
     change: boolean,
     achieve: boolean,
-    createdAt: FieldValue | null
+    createdAt: {
+      nanoseconds: number,
+      seconds: number
+    }
   }[]>([])
 
   useEffect(() => {
