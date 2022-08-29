@@ -13,7 +13,7 @@ function App() {
     onAuthStateChanged(auth,(user)=>{
       if(user){
         setIsLoggedIn(true);
-        setUserObj(user)//어떻게 해야하는거지
+        setUserObj(user)
       }else{
         setIsLoggedIn(false);
       }

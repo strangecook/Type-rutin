@@ -13,21 +13,28 @@ function Approach() {
       .transition().duration(1000)
       .attr("height", 40)
       .attr("fill", "green")
-      
-      .attr("y", (d, i) => i * 50)
       .attr("width", (d) => d)
 
   }, [data])
   return (
     <ApproachContainer>
-      <svg width="500" height="300">
-        <rect rx="10" width="100%" height="40" y="0" fill="#B3C680" ></rect>
-        <rect className='data' rx="10" ></rect>
-        <rect rx="10" width="100%" height="40" y="50" fill="#B3C680" ></rect>
-        <rect className='data' rx="10" ></rect>
-        <rect rx="10" width="100%" height="40" y="100" fill="#B3C680" ></rect>
-        <rect className='data' rx="10" ></rect>
-          </svg>
+      <ChartDiv>
+        <div className='todayApproach'>오늘 할당량</div>
+        <svg className='todayApproachGraph' width="100%" height="auto">
+          <rect rx="10" width="100%" height="40" y="0" fill="#B3C680" ></rect>
+          <rect className='data' rx="10" ></rect>
+        </svg>
+        <div className='weekApproach'>일주일 할당량</div>
+        <svg className='weekApproachGraph' width="100%" height="auto">
+          <rect rx="10" width="100%" height="40" y="0" fill="#B3C680" ></rect>
+          <rect className='data' rx="10" ></rect>
+        </svg>
+        <div className='everyApproach'>전체 할당량</div>
+        <svg className='everyApproachGraph' width="100%" height="auto">
+          <rect rx="10" width="100%" height="40" y="0" fill="#B3C680" ></rect>
+          <rect className='data' rx="10" ></rect>
+        </svg>
+      </ChartDiv>
     </ApproachContainer>
   );
 }
