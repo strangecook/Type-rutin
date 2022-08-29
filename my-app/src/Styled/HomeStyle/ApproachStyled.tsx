@@ -10,7 +10,7 @@ margin: 0 0 0 5px;
 `
 
 export const ChartDiv = styled.div`
-    height: 500px;
+    height: 230px;
     width: 90%;
     margin: auto;
     display: grid;
