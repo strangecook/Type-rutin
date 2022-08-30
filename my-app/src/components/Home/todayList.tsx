@@ -2,7 +2,7 @@ import React, { useState, } from 'react';
 import { TodayTodoChange, TodayTodoComplete, TodayTodoTextFinish, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { dbService } from "../../firebase";
-import { FieldValue } from "@firebase/firestore";// @으로 임포트 해오면 해당 타입들이 적혀져 있다.
+import { getDayOfDiffer } from "../../function/DateCalculate"
 
 interface props {
   eachData: {
@@ -22,8 +22,7 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
 
   const [changeText, setChangeText] = useState("")
   const thisIsToday = new Date()
-  console.log("eachData", new Date(eachData.createdAt?.seconds*1000))
-  console.log("thisIsToday", thisIsToday)
+  const CreateTextDay = new Date(eachData.createdAt?.seconds*1000)
 
   const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChangeText(e.target.value)
@@ -71,28 +70,33 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
 
   return (
     <>
-      <TodayTodo>
-        <TodayTodoInput type="checkbox"></TodayTodoInput>
-        <TodayTodoNumber>{idx + 1}.</TodayTodoNumber>
-        {eachData.change
-          ? <>
-            <TodayTodoChange onChange={(e) => changeTextOnchange(e)} value={changeText} placeholder={eachData.text}></TodayTodoChange>
-            <TodayTodoFix onClick={() => changeCommitSet()}>결정</TodayTodoFix>
-            <TodayTodoDel onClick={() => changeCancle()}>취소</TodayTodoDel>
-          </>
-          : <>
-            {eachData.achieve
-              ?
-              <TodayTodoTextFinish>{eachData.text}</TodayTodoTextFinish>
-              :
-              <TodayTodoText>{eachData.text}</TodayTodoText>
-            }
-            <TodayTodoComplete onClick={() => todoComplete()}>달성</TodayTodoComplete>
-            <TodayTodoFix onClick={() => changeCommit()}>수정</TodayTodoFix>
-            <TodayTodoDel onClick={() => DeleteCommit()}>삭제</TodayTodoDel>
-          </>}
-      </TodayTodo>
-    </>
+    { getDayOfDiffer(thisIsToday, CreateTextDay) 
+    ?<TodayTodo>
+    <TodayTodoInput type="checkbox"></TodayTodoInput>
+    <TodayTodoNumber>{idx + 1}.</TodayTodoNumber>
+    {eachData.change
+      ? <>
+        <TodayTodoChange onChange={(e) => changeTextOnchange(e)} value={changeText} placeholder={eachData.text}></TodayTodoChange>
+        <TodayTodoFix onClick={() => changeCommitSet()}>결정</TodayTodoFix>
+        <TodayTodoDel onClick={() => changeCancle()}>취소</TodayTodoDel>
+      </>
+      : <>
+        {eachData.achieve
+          ?
+          <TodayTodoTextFinish>{eachData.text}</TodayTodoTextFinish>
+          :
+          <TodayTodoText>{eachData.text}</TodayTodoText>
+        }
+        <TodayTodoComplete onClick={() => todoComplete()}>달성</TodayTodoComplete>
+        <TodayTodoFix onClick={() => changeCommit()}>수정</TodayTodoFix>
+        <TodayTodoDel onClick={() => DeleteCommit()}>삭제</TodayTodoDel>
+      </>}
+  </TodayTodo>
+    
+    :<></>
+  }
+  </> 
+      
   );
 }
 

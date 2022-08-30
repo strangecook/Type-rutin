@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { TodayComponent, TodayTitle } from '../../Styled/HomeStyle/TodayStyled';
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore"
 import { dbService } from "../../firebase";
-import { FieldValue } from "@firebase/firestore";// @으로 임포트 해오면 해당 타입들이 적혀져 있다.
 import TodayList from './todayList';
 
 function OnlyToday() {
