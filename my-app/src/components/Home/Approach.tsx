@@ -32,20 +32,54 @@ function Approach() {
         boolean: doc.id,
         ...doc.data(),
       }));
+      console.log("nweetArr",nweetArr)
       setTodayData(nweetArr);//또 막혔다 어떻게 처리해야하는 걸까..?
     });
+
+    let userApproachData = []
+     const filteredTodayData = todayData.filter((data)=>{
+       const todayDate = new Date()
+       const CreateTextDay = new Date(data.createdAt?.seconds*1000)
+       return getDayOfDiffer(todayDate, CreateTextDay)
+     })
+     const ApproachTodayData = filteredTodayData.filter((data)=>{
+       return data.achieve
+     })
+     console.log("todayData",todayData);
+     
+     console.log("filteredTodayData",filteredTodayData);
+     
+     console.log("ApproachTodayData",ApproachTodayData)
+     const fristData = `${ ApproachTodayData.length / filteredTodayData.length * 100}%`
+     userApproachData.push(fristData)
+     console.log("fristData",fristData)
+     
+
+     const sevenDays = new Date(new Date().setDate(new Date().getDate()-7))
+  
+     const filteredSevenDayDate = todayData.filter((data)=>{
+      return new Date(data.createdAt?.seconds*1000) > sevenDays
+     })
+     const ApproachSevenDayDate = filteredSevenDayDate.filter((data)=>{
+      return data.achieve
+    })
+
+    const SecondData = `${ ApproachSevenDayDate.length / filteredSevenDayDate.length * 100}%`
+    userApproachData.push(SecondData)
+    console.log("SecondData",SecondData)
+
+    const ApproachEveryDayDate = filteredSevenDayDate.filter((data)=>{
+      return data.achieve
+    })
+
+    const thirdDate = `${ ApproachEveryDayDate.length / todayData.length * 100}%`
+    userApproachData.push(thirdDate)
+    console.log("thirdDate",thirdDate)
+
+    setData(userApproachData)
+    console.log("userApproachData",userApproachData);
+    
   }, [])
-
-  const filteredTodayData = todayData.filter((data)=>{
-    const todayDate = new Date()
-    const CreateTextDay = new Date(data.createdAt?.seconds*1000)
-    return getDayOfDiffer(todayDate, CreateTextDay)
-  })
-  const ApproachTodayData = filteredTodayData.filter((data)=>{
-    return data.achieve
-  })
-
-  console.log("filteredTodayData",filteredTodayData)
 
   useEffect(() => {
     d3.selectAll(".data")
@@ -62,17 +96,17 @@ function Approach() {
     <ApproachContainer>
       <ChartDiv>
         <div className='todayApproach'>오늘 할당량</div>
-        <svg className='todayApproachGraph' width="100%" height="auto">
+        <svg className='todayApproachGraph' width="100%">
           <rect rx="10" width="100%" height="30" y="0" fill="#B3C680" ></rect>
           <rect className='data' rx="10" ></rect>
         </svg>
         <div className='weekApproach'>일주일 할당량</div>
-        <svg className='weekApproachGraph' width="100%" height="auto">
+        <svg className='weekApproachGraph' width="100%">
           <rect rx="10" width="100%" height="30" y="0" fill="#B3C680" ></rect>
           <rect className='data' rx="10" ></rect>
         </svg>
         <div className='everyApproach'>전체 할당량</div>
-        <svg className='everyApproachGraph' width="100%" height="auto">
+        <svg className='everyApproachGraph' width="100%">
           <rect rx="10" width="100%" height="30" y="0" fill="#B3C680" ></rect>
           <rect className='data' rx="10" ></rect>
         </svg>
