@@ -26,16 +26,18 @@ function Approach() {
       orderBy("createdAt", "desc")
     );
     onSnapshot(q, (snapshot) => {
-      const nweetArr: any = snapshot.docs.map((doc) => ({ // 먼저 any로 타입을 지정해줬는데 더 알아봐야한다. 다시본다면 생각해보자
+      const nweetArr: any = snapshot.docs.map((doc) => ({
         id: doc.id,
         text: doc.id,
         boolean: doc.id,
         ...doc.data(),
       }));
       console.log("nweetArr",nweetArr)
-      setTodayData(nweetArr);//또 막혔다 어떻게 처리해야하는 걸까..?
+      setTodayData(nweetArr);
     });
+  }, [])
 
+  useEffect(()=>{
     let userApproachData = []
      const filteredTodayData = todayData.filter((data)=>{
        const todayDate = new Date()
@@ -45,16 +47,9 @@ function Approach() {
      const ApproachTodayData = filteredTodayData.filter((data)=>{
        return data.achieve
      })
-     console.log("todayData",todayData);
-     
-     console.log("filteredTodayData",filteredTodayData);
-     
-     console.log("ApproachTodayData",ApproachTodayData)
      const fristData = `${ ApproachTodayData.length / filteredTodayData.length * 100}%`
      userApproachData.push(fristData)
-     console.log("fristData",fristData)
      
-
      const sevenDays = new Date(new Date().setDate(new Date().getDate()-7))
   
      const filteredSevenDayDate = todayData.filter((data)=>{
@@ -66,7 +61,6 @@ function Approach() {
 
     const SecondData = `${ ApproachSevenDayDate.length / filteredSevenDayDate.length * 100}%`
     userApproachData.push(SecondData)
-    console.log("SecondData",SecondData)
 
     const ApproachEveryDayDate = filteredSevenDayDate.filter((data)=>{
       return data.achieve
@@ -74,12 +68,9 @@ function Approach() {
 
     const thirdDate = `${ ApproachEveryDayDate.length / todayData.length * 100}%`
     userApproachData.push(thirdDate)
-    console.log("thirdDate",thirdDate)
 
     setData(userApproachData)
-    console.log("userApproachData",userApproachData);
-    
-  }, [])
+  },[todayData])
 
   useEffect(() => {
     d3.selectAll(".data")
@@ -92,9 +83,18 @@ function Approach() {
       .attr("width", (d) => d)
   }, [data])
 
+  const confirmData = data.filter((data)=>{
+    if(data === "NaN%"){
+      return false;
+    }else{
+      return true;
+    }
+  })
+
   return (
     <ApproachContainer>
       <ChartDiv>
+        {confirmData.length?<>
         <div className='todayApproach'>오늘 할당량</div>
         <svg className='todayApproachGraph' width="100%">
           <rect rx="10" width="100%" height="30" y="0" fill="#B3C680" ></rect>
@@ -110,6 +110,7 @@ function Approach() {
           <rect rx="10" width="100%" height="30" y="0" fill="#B3C680" ></rect>
           <rect className='data' rx="10" ></rect>
         </svg>
+        </> :<></>}
       </ChartDiv>
     </ApproachContainer>
   );
