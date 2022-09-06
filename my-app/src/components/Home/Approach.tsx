@@ -19,21 +19,43 @@ function Approach() {
       seconds: number
     }
   }[]>([])
+  const [EveryData, setEveryData] = useState<{
+    id: string,
+    text: string,
+    change: boolean,
+    achieve: boolean,
+    createdAt: {
+      nanoseconds: number,
+      seconds: number
+    }
+  }[]>([])
   
   useEffect(() => {
-    const q = query(
+    const today = query(
       collection(dbService, "todayList"),
       orderBy("createdAt", "desc")
     );
-    onSnapshot(q, (snapshot) => {
-      const nweetArr: any = snapshot.docs.map((doc) => ({
+    const every = query(
+      collection(dbService, "EveryDayList"),
+      orderBy("createdAt", "desc")
+    );
+    onSnapshot(today, (snapshot) => {
+      const todayArr: any = snapshot.docs.map((doc) => ({
         id: doc.id,
         text: doc.id,
         boolean: doc.id,
         ...doc.data(),
       }));
-      console.log("nweetArr",nweetArr)
-      setTodayData(nweetArr);
+      setTodayData(todayArr);
+    });
+    onSnapshot(every, (snapshot) => {
+      const evetyArr: any = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        text: doc.id,
+        boolean: doc.id,
+        ...doc.data(),
+      }));
+      setEveryData(evetyArr);
     });
   }, [])
 
@@ -47,11 +69,21 @@ function Approach() {
      const ApproachTodayData = filteredTodayData.filter((data)=>{
        return data.achieve
      })
-     const fristData = `${ ApproachTodayData.length / filteredTodayData.length * 100}%`
+     const ApproachEveryData = EveryData.filter((data)=>{
+      return data.achieve
+    })
+    console.log("ApproachEveryData",ApproachEveryData)
+    console.log("ApproachTodayData",ApproachTodayData)
+    console.log("filteredTodayData",filteredTodayData)
+    console.log("EveryData",EveryData);
+    
+     const fristData = `${ (ApproachTodayData.length+ApproachEveryData.length) / (filteredTodayData.length+EveryData.length) * 100}%`
+     console.log("fristData",fristData)
      userApproachData.push(fristData)
      
+
+
      const sevenDays = new Date(new Date().setDate(new Date().getDate()-7))
-  
      const filteredSevenDayDate = todayData.filter((data)=>{
       return new Date(data.createdAt?.seconds*1000) > sevenDays
      })
@@ -70,7 +102,7 @@ function Approach() {
     userApproachData.push(thirdDate)
 
     setData(userApproachData)
-  },[todayData])
+  },[todayData, EveryData])
 
   useEffect(() => {
     d3.selectAll(".data")

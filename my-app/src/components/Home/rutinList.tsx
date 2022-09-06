@@ -1,15 +1,18 @@
 import React, { useState, } from 'react';
-import { TodayTodoChange, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
+import { TodayTodoChange, EveryTodoTextFinish, TodayTodoComplete, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { dbService } from "../../firebase";
-import { FieldValue } from "@firebase/firestore";// @으로 임포트 해오면 해당 타입들이 적혀져 있다.
 
 interface props {
     eachData: {
         id: string,
         text: string,
         change: boolean,
-        createdAt: FieldValue | null
+        achieve: boolean,
+        createdAt: {
+            nanoseconds: number,
+            seconds: number
+        }
     },
     idx: number
 }
@@ -49,6 +52,18 @@ function RutinList({ eachData, idx }: props): React.ReactElement {
         })
     }
 
+    const todoComplete = async () => {
+        if (eachData.achieve) {
+            await updateDoc(TodayDataChange, {
+                achieve: false,
+            })
+        } else {
+            await updateDoc(TodayDataChange, {
+                achieve: true,
+            })
+        }
+    }
+
     return (
         <>
             <TodayTodo>
@@ -61,7 +76,13 @@ function RutinList({ eachData, idx }: props): React.ReactElement {
                         <TodayTodoDel onClick={() => changeCancle()}>취소</TodayTodoDel>
                     </>
                     : <>
-                        <TodayTodoText>{eachData.text}</TodayTodoText>
+                        {eachData.achieve
+                            ?
+                            <EveryTodoTextFinish>{eachData.text}</EveryTodoTextFinish>
+                            :
+                            <TodayTodoText>{eachData.text}</TodayTodoText>
+                        }
+                        <TodayTodoComplete onClick={() => todoComplete()}>달성</TodayTodoComplete>
                         <TodayTodoFix onClick={() => changeCommit()}>수정</TodayTodoFix>
                         <TodayTodoDel onClick={() => DeleteCommit()}>삭제</TodayTodoDel>
                     </>}
