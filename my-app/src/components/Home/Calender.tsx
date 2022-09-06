@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CalenderContainer } from '../../Styled/HomeStyle/CalenderStyled';
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
+import '../../Styled/ComponentStyle/Calender.css';
 import Calendar from 'react-calendar';
 
 function Rutin() {
