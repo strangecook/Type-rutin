@@ -20,7 +20,7 @@ interface props {
 
 function TodayList({ eachData, idx }: props): React.ReactElement {
 
-  const [changeText, setChangeText] = useState("")
+  const [changeText, setChangeText] = useState(`${eachData.text}`)
   const thisIsToday = new Date()
   const CreateTextDay = new Date(eachData.createdAt?.seconds*1000)
 

@@ -8,7 +8,6 @@ function InputSection() {
   const [text, setText] = useState("")
   const [selectBox, setSelectBox] = useState("오늘 할 일 추가")
 
-
   const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value)
     setSelectBox(e.target.value)

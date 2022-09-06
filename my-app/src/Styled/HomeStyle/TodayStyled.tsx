@@ -38,6 +38,11 @@ grid-column: 3/10;
 text-decoration:line-through;
 color: aliceblue;
 `
+export const EveryTodoTextFinish = styled.div`
+grid-column: 3/10;
+text-decoration:line-through;
+color: black;
+`
 export const TodayTodoChange = styled.input`
 grid-column: 3/10;
 `
