@@ -7,6 +7,10 @@ background-color:#DAECF5;
 border: 1px solid black;
 overflow: hidden;
 margin: 0 5px 0 0;
+overflow-y: scroll;
+::-webkit-scrollbar{
+  display:none;
+}
 `
 
 export const RutinTitle = styled.div`

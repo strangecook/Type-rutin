@@ -7,6 +7,10 @@ background-color: #C5C5E7;
 border: 1px solid black;
 overflow: hidden;
 margin: 0 0 0 5px;
+overflow-y: scroll;
+::-webkit-scrollbar{
+  display:none;
+}
 `
 //도대체 왜 에러가 생기는 것일까...? 찾아보기
 export const TodayTitle = styled.div`
