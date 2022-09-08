@@ -21,9 +21,9 @@ function App() {
     })
   },[])
   return (
-        <AppContainer>
+        <div>
           {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : "...initializing!"}
-        </AppContainer>
+        </div>
   );
 }
 
