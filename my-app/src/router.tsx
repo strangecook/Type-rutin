@@ -9,7 +9,7 @@ const AppRouter = ({ isLoggedIn, userObj }: homeProps) => {
 
     return (
         <BrowserRouter>
-            {isLoggedIn && <Navigation />}
+            {/* {isLoggedIn && <Navigation />} */}
             <Routes>
                 {isLoggedIn ? (
                     <>
