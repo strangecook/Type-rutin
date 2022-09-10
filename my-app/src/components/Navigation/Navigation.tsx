@@ -7,7 +7,9 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 function Navigation() {
     return (
         <NaviCoverDiv>
-            <FontAwesomeIcon icon={faBars} size="3x" />
+            <div className="SideBar">
+             <FontAwesomeIcon className="SideBarIcon" icon={faBars} size="3x" />
+            </div>
             {/* <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/profile">my profile</Link></li>
