@@ -9,14 +9,14 @@ grid-template-rows: repeat(2,1fr);
 
 export const InputSelect = styled.select`
     grid-column: 1/2;
-    grid-row: 1/2;
+    grid-row: 2/3;
     margin: 0 10px 0 0;
     border-radius: 5px;
 `
 
 export const InputBlank = styled.input`
     grid-column: 2/7;
-    grid-row: 1/2;
+    grid-row: 2/3;
     border: 0;
     border-radius: 5px;
     font-size: 1rem;
@@ -29,7 +29,7 @@ export const InputBlank = styled.input`
 
 export const InputButton = styled.input`
     grid-column: 6/7;
-    grid-row: 1/2;
+    grid-row: 2/3;
     width: 80%;
     border: 0;
     margin: 8px;
