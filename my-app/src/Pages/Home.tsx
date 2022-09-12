@@ -6,10 +6,12 @@ import OnlyToday from '../components/Home/OnlyToday';
 import Calender from '../components/Home/Calender'
 import Approach from '../components/Home/Approach';
 import Navigation from '../components/Navigation/Navigation';
+import SideBar from '../components/Home/SideBar';
 
 function Home() {
   return (
     <HomeContainer>
+      <SideBar />
       <Navigation />
       <InputSection />
       <Rutin />
