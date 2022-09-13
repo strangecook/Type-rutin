@@ -6,10 +6,10 @@ interface sidesomething {
 
 export const SideBarComponent = styled.div<sidesomething>`
 grid-area: side;
-background-color: red;
+background-color: rgb(64, 85, 163, 0.5);
 position: absolute;
-/* left: -70%; */
-left: ${(props) => (props.sideState ? "-70%" : "0%")};
+width: 90%;
+left: ${(props) => (props.sideState ? "0%" : "-100%")};
 height: 100%;
 transition: all 0.5s ease;
 `
