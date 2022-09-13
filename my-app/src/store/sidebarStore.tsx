@@ -7,7 +7,7 @@ type sidebarType ={
 
 const useSidebarStore = create<sidebarType>((set) => ({
   sideState: false,
-  increasePopulation: () => set((state: {sideState: boolean}) => ({ sideState: state.sideState! })),
+  increasePopulation: () => set((state: {sideState: boolean}) => ({ sideState: !state.sideState })),
 }))
 
 export default useSidebarStore;
