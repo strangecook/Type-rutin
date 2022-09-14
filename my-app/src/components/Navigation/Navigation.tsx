@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom"
 import { NaviCoverDiv } from "../../Styled/Navigation/navigationStyle"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars,faX } from "@fortawesome/free-solid-svg-icons";
 import SidebarStore from "../../store/sidebarStore"
 
 function Navigation() {
-    const { increasePopulation } = SidebarStore();
+    const { sideState, increasePopulation } = SidebarStore();
 
     const SideChange = () =>{
         increasePopulation()
@@ -14,7 +14,10 @@ function Navigation() {
     return (
         <NaviCoverDiv>
             <div className="SideBar">
-             <FontAwesomeIcon onClick={()=>SideChange()} className="SideBarIcon" icon={faBars} size="3x" />
+                {sideState 
+                ? <FontAwesomeIcon onClick={()=>SideChange()} className="SideBarIcon" icon={faX} size="3x" /> 
+                : <FontAwesomeIcon onClick={()=>SideChange()} className="SideBarIcon" icon={faBars} size="3x" />
+                }
             </div>
             {/* <ul>
                 <li><Link to="/">Home</Link></li>

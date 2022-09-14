@@ -13,6 +13,13 @@ width: 100%;
 }
 
 .SideBarIcon{
+    width: 50px;
+    height: 50px;
     cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    :hover{
+        background-color: #98A6D7;
+    }
 }
 `
