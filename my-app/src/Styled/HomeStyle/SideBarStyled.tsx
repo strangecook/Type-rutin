@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-interface sidesomething {
+interface sideStateType {
     readonly sideState: boolean
 }
 
-export const SideBarComponent = styled.div<sidesomething>`
+export const SideBarComponent = styled.div<sideStateType>`
 grid-area: side;
 background-color: rgb(64, 85, 163, 0.5);
 position: absolute;
