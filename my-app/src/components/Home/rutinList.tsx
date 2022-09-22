@@ -19,7 +19,7 @@ interface props {
 
 function RutinList({ eachData, idx }: props): React.ReactElement {
 
-    const [changeText, setChangeText] = useState("")
+    const [changeText, setChangeText] = useState(eachData.text)
     const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChangeText(e.target.value)
     }
