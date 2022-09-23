@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { homeProps } from './type/types';
-import Navigation from "./components/Navigation/Navigation";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import LeftWorks from "./Pages/LeftWorks";
 
 const AppRouter = ({ isLoggedIn, userObj }: homeProps) => {
 
@@ -14,6 +14,7 @@ const AppRouter = ({ isLoggedIn, userObj }: homeProps) => {
                 {isLoggedIn ? (
                     <>
                         <Route path="/" element={<Home />} />
+                        <Route path="/left" element={<LeftWorks />} />
                     </>
                 )
                     : (
