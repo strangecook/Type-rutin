@@ -1,10 +1,13 @@
 import React from 'react';
 import { LeftWorksComponent } from '../Styled/LeftWorkStyled/LeftWorkStyled';
+import Navigation from '../components/Navigation/Navigation';
+import SideBar from '../components/Home/SideBar';
 
 function LeftWorks() {
   return (
     <LeftWorksComponent>
-        안녕..
+      <Navigation />
+      <SideBar />
     </LeftWorksComponent>
   );
 }
