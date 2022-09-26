@@ -72,17 +72,10 @@ function Approach() {
      const ApproachEveryData = EveryData.filter((data)=>{
       return data.achieve
     })
-    console.log("ApproachEveryData",ApproachEveryData)
-    console.log("ApproachTodayData",ApproachTodayData)
-    console.log("filteredTodayData",filteredTodayData)
-    console.log("EveryData",EveryData);
     
      const fristData = `${ (ApproachTodayData.length+ApproachEveryData.length) / (filteredTodayData.length+EveryData.length) * 100}%`
-     console.log("fristData",fristData)
      userApproachData.push(fristData)
      
-
-
      const sevenDays = new Date(new Date().setDate(new Date().getDate()-7))
      const filteredSevenDayDate = todayData.filter((data)=>{
       return new Date(data.createdAt?.seconds*1000) > sevenDays
@@ -94,7 +87,7 @@ function Approach() {
     const SecondData = `${ ApproachSevenDayDate.length / filteredSevenDayDate.length * 100}%`
     userApproachData.push(SecondData)
 
-    const ApproachEveryDayDate = filteredSevenDayDate.filter((data)=>{
+    const ApproachEveryDayDate = todayData.filter((data)=>{
       return data.achieve
     })
 

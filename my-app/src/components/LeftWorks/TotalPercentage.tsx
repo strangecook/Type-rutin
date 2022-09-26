@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import * as d3 from "d3";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore"
 import { dbService } from "../../firebase";
-import { getDayOfDiffer } from "../../function/DateCalculate"
 
 
 function TotalPercentage() {
