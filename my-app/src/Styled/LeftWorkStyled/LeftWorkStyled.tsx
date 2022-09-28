@@ -10,14 +10,14 @@ grid-template-areas:
 " navi navi navi navi "
 " side . . ."
 " side total total ."
-" side . . ."
-" side . . ."
-" side . . ."
-" side . . ."
-" side rutin today ."
-" side rutin today ."
-" side rutin today ."
-" side rutin today ."
+" side LeftTask LeftTask ."
+" side LeftTask LeftTask ."
+" side LeftTask LeftTask ."
+" side LeftTask LeftTask ."
+" side LeftTask LeftTask ."
+" side LeftTask LeftTask ."
+" side LeftTask LeftTask ."
+" side LeftTask LeftTask ."
 " side . . .";
 top: 0;
 left: 0;
