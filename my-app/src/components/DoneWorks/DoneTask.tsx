@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {LeftTaskComponent, LeftTaskTitle} from "../../Styled/LeftWorkStyled/LeftTaskStyled"
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore"
 import { dbService } from "../../firebase";
-import TaskList from './TaskList';
+import DoneTaskList from './DoneTaskList';
 
-function LeftTasks() {
+function DoneTask() {
   const [todayData, setTodayData] = useState<{
     id: string,
     text: string,
@@ -36,17 +36,17 @@ function LeftTasks() {
   return (
     <LeftTaskComponent>
       <LeftTaskTitle>
-        남은과제 리스트
+        해결된 과제 리스트
       </LeftTaskTitle>
       {todayData.filter((data)=>{
-        return !data.achieve
+        return data.achieve
       }).map((eachData, idx) => {
         return (
-          <TaskList key={eachData.id} eachData={eachData} idx={idx} />
+            <DoneTaskList eachData ={eachData} idx={idx} />
         )
       })}
     </LeftTaskComponent>
   );
 }
 
-export default LeftTasks;
+export default DoneTask;
