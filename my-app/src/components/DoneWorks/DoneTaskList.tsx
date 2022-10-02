@@ -1,5 +1,5 @@
-import React, { useState, } from 'react';
-import { TodayTodoChange, TodayTodoComplete, TodayTodoTextFinish, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
+import React from 'react';
+import { TodayTodoTextFinish, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText } from '../../Styled/HomeStyle/TodayStyled';
 
 interface props {
   eachData: {
