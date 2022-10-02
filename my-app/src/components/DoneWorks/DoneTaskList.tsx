@@ -1,7 +1,5 @@
 import React, { useState, } from 'react';
 import { TodayTodoChange, TodayTodoComplete, TodayTodoTextFinish, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
-import { doc, updateDoc, deleteDoc } from "firebase/firestore"
-import { dbService } from "../../firebase";
 
 interface props {
   eachData: {
@@ -18,52 +16,6 @@ interface props {
 }
 
 function DoneTaskList({ eachData, idx }: props): React.ReactElement {
-
-  const [changeText, setChangeText] = useState(`${eachData.text}`)
-
-  const changeTextOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChangeText(e.target.value)
-  }
-  const TodayDataChange = doc(dbService, "todayList", `${eachData.id}`);
-
-  const changeCommit = async () => {
-    await updateDoc(TodayDataChange, {
-      change: true,
-    })
-  }
-
-  const DeleteCommit = async () => {
-    try {
-      await deleteDoc(TodayDataChange)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  const changeCommitSet = async () => {
-    await updateDoc(TodayDataChange, {
-      change: false,
-      text: changeText
-    })
-  }
-
-  const changeCancle = async () => {
-    await updateDoc(TodayDataChange, {
-      change: false,
-    })
-  }
-
-  const todoComplete = async () => {
-    if (eachData.achieve) {
-      await updateDoc(TodayDataChange, {
-        achieve: false,
-      })
-    } else {
-      await updateDoc(TodayDataChange, {
-        achieve: true,
-      })
-    }
-  }
 
   return (
     <>
