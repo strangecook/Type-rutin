@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {LeftTaskComponent, LeftTaskTitle} from "../../Styled/LeftWorkStyled/LeftTaskStyled"
+import { DoneTaskComponent, DoneTaskTitle } from '../../Styled/DoneWorkStyled/DoneTaskStyled';
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore"
 import { dbService } from "../../firebase";
 import DoneTaskList from './DoneTaskList';
@@ -34,10 +34,10 @@ function DoneTask() {
   }, [])
 
   return (
-    <LeftTaskComponent>
-      <LeftTaskTitle>
+    <DoneTaskComponent>
+      <DoneTaskTitle>
         해결된 과제 리스트
-      </LeftTaskTitle>
+      </DoneTaskTitle>
       {todayData.filter((data)=>{
         return data.achieve
       }).map((eachData, idx) => {
@@ -45,7 +45,7 @@ function DoneTask() {
             <DoneTaskList eachData ={eachData} idx={idx} />
         )
       })}
-    </LeftTaskComponent>
+    </DoneTaskComponent>
   );
 }
 

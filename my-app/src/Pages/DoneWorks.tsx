@@ -1,16 +1,16 @@
 import React from 'react';
-import { LeftWorksComponent } from '../Styled/LeftWorkStyled/LeftWorkStyled';
 import Navigation from '../components/Navigation/Navigation';
 import SideBar from '../components/Home/SideBar';
 import DoneTask from '../components/DoneWorks/DoneTask';
+import { DoneWorksComponent } from '../Styled/DoneWorkStyled/DoneWorkStyled';
 
 function DoneWorks() {
   return (
-    <LeftWorksComponent>
+    <DoneWorksComponent>
       <Navigation />
       <SideBar />
       <DoneTask />
-    </LeftWorksComponent>
+    </DoneWorksComponent>
   );
 }
 
