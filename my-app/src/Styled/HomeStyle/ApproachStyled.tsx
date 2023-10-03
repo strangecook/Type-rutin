@@ -7,11 +7,12 @@ background-color: white;
 border: 1px solid black;
 overflow: hidden;
 margin: 0 0 0 5px;
+height: 150%;
 `
 
 export const ChartDiv = styled.div`
-    height: 230px;
-    width: 90%;
+    height: 270px;
+    width: 95%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -27,18 +28,21 @@ export const ChartDiv = styled.div`
 
     .todayApproach{
         grid-area: todayApproach;
+        font-size: small;
     }
     .todayApproachGraph{
         grid-area: TAG;
     }
     .weekApproach{
         grid-area: weekApproach;
+        font-size: small;
     }
     .weekApproachGraph{
         grid-area: WAG;
     }
     .everyApproach{
         grid-area: everyApproach;
+        font-size: small;   
     }
     .everyApproachGraph{
         grid-area: EAG;
