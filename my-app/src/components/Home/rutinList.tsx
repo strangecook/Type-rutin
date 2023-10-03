@@ -1,5 +1,5 @@
 import React, { useState, } from 'react';
-import { TodayTodoChange, EveryTodoTextFinish, TodayTodoComplete, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
+import { TodayTodoChange, EveryTodoTextFinish, TodayTodoComplete, TodayTodo, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { dbService } from "../../firebase";
 
@@ -67,7 +67,6 @@ function RutinList({ eachData, idx }: props): React.ReactElement {
     return (
         <>
             <TodayTodo>
-                <TodayTodoInput type="checkbox"></TodayTodoInput>
                 <TodayTodoNumber>{idx + 1}.</TodayTodoNumber>
                 {eachData.change
                     ? <>

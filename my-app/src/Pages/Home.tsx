@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HomeContainer } from '../Styled/HomeStyle/HomeStyled';
+import { HomeContainer, BodyPicture } from '../Styled/HomeStyle/HomeStyled';
 import InputSection from '../components/Home/inputSection';
 import Rutin from '../components/Home/rutin';
 import OnlyToday from '../components/Home/OnlyToday';
@@ -10,6 +10,7 @@ import SideBar from '../components/Home/SideBar';
 
 function Home() {
   return (
+    <BodyPicture>
     <HomeContainer>
       <SideBar />
       <Navigation />
@@ -19,6 +20,7 @@ function Home() {
       <Calender />
       <Approach />
     </HomeContainer>
+    </BodyPicture>
   );
 }
 

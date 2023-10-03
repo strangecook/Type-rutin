@@ -1,5 +1,5 @@
 import React from 'react';
-import { TodayTodoTextFinish, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText } from '../../Styled/HomeStyle/TodayStyled';
+import { TodayTodoTextFinish, TodayTodo, TodayTodoNumber, TodayTodoText } from '../../Styled/HomeStyle/TodayStyled';
 
 interface props {
   eachData: {
@@ -20,7 +20,6 @@ function DoneTaskList({ eachData, idx }: props): React.ReactElement {
   return (
     <>
     <TodayTodo>
-    <TodayTodoInput type="checkbox"></TodayTodoInput>
     <TodayTodoNumber>{idx + 1}.</TodayTodoNumber>
         {eachData.achieve
           ?

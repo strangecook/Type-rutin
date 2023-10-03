@@ -25,10 +25,9 @@ export const TodayTodo = styled.div`
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     margin: 10px;
+    height: 20px;
     `
-export const TodayTodoInput = styled.input`
-grid-column: 1/2;
-`
+
 export const TodayTodoNumber = styled.div`
 grid-column: 2/3;
 text-align: center;
@@ -36,25 +35,35 @@ line-height: 25px;
 `
 export const TodayTodoText = styled.div`
 grid-column: 3/10;
+font-size: small;
 `
 export const TodayTodoTextFinish = styled.div`
 grid-column: 3/10;
 text-decoration:line-through;
 color: aliceblue;
+font-size: small;
 `
 export const EveryTodoTextFinish = styled.div`
 grid-column: 3/10;
 text-decoration:line-through;
 color: black;
+font-size: small;
 `
 export const TodayTodoChange = styled.input`
 grid-column: 3/10;
+font-size: small;
 `
 export const TodayTodoComplete = styled.button`
 grid-column: 10/11;
 margin: 0 3px 0 3px;
 border: 3px solid #777baf;
 border-radius: 3px;
+font-size: x-small;
+height: 80%;
+white-space: nowrap; /* 텍스트가 한 줄에 표시되도록 설정 */
+  writing-mode: horizontal-tb; /* 텍스트를 가로로 표시 */
+  text-orientation: upright; /* 텍스트 방향을 유지 */
+  line-height: normal; /* 텍스트 줄 간격을 기본값으로 설정 */
 transition: transform 300ms ease;
 
 :hover {
@@ -68,6 +77,12 @@ grid-column: 11/12;
 margin: 0 3px 0 3px;
 border: 3px solid #77af9c;
 border-radius: 3px;
+font-size: x-small;
+height: 80%;
+white-space: nowrap; /* 텍스트가 한 줄에 표시되도록 설정 */
+  writing-mode: horizontal-tb; /* 텍스트를 가로로 표시 */
+  text-orientation: upright; /* 텍스트 방향을 유지 */
+  line-height: normal; /* 텍스트 줄 간격을 기본값으로 설정 */
 transition: transform 300ms ease;
 
 :hover {
@@ -81,6 +96,12 @@ grid-column: 12/13;
 margin: 0 3px 0 3px;
 border: 3px solid #ff5f2e;
 border-radius: 3px;
+font-size: x-small;
+height: 80%;
+white-space: nowrap; /* 텍스트가 한 줄에 표시되도록 설정 */
+  writing-mode: horizontal-tb; /* 텍스트를 가로로 표시 */
+  text-orientation: upright; /* 텍스트 방향을 유지 */
+  line-height: normal; /* 텍스트 줄 간격을 기본값으로 설정 */
 transition: transform 300ms ease;
 
 :hover {

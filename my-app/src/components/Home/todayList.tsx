@@ -1,5 +1,5 @@
 import React, { useState, } from 'react';
-import { TodayTodoChange, TodayTodoComplete, TodayTodoTextFinish, TodayTodo, TodayTodoInput, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
+import { TodayTodoChange, TodayTodoComplete, TodayTodoTextFinish, TodayTodo, TodayTodoNumber, TodayTodoText, TodayTodoFix, TodayTodoDel } from '../../Styled/HomeStyle/TodayStyled';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { dbService } from "../../firebase";
 import { getDayOfDiffer } from "../../function/DateCalculate"
@@ -72,7 +72,6 @@ function TodayList({ eachData, idx }: props): React.ReactElement {
     <>
     { getDayOfDiffer(thisIsToday, CreateTextDay) 
     ?<TodayTodo>
-    <TodayTodoInput type="checkbox"></TodayTodoInput>
     <TodayTodoNumber>{idx + 1}.</TodayTodoNumber>
     {eachData.change
       ? <>
